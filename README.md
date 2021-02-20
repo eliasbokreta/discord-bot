@@ -1,6 +1,6 @@
 # discord-bot
 ## Introduction
-Just a discord bot for playing audio from files/streams handled by [youtube_dl](https://github.com/ytdl-org/youtube-dl) library and for gambling system with channel points
+Just a Discord bot for playing audio from files/streams handled by [youtube_dl](https://github.com/ytdl-org/youtube-dl) library and for gambling system with channel points
 
 ## Prerequisites
 This bot was developed using `Python 3.7.3` version on Debian 10.<br>
@@ -59,4 +59,10 @@ Commands list :
 *To complete*
 
 ## To do
-*To complete*
+- Improve bot start (e.g. pass token, audio folder and database path as launch parameter)
+- Add more Discord bot messages after commands
+- Implement a logger to replace prints
+- Less audio files restrictions (allow multiple extension types)
+- Separate custom database interactions from the Gamble cog into an other module
+- Handle gamble database initializtion safely, backup existing file instead of overriding
+- Implement a server administration Cog 
