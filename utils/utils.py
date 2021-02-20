@@ -8,7 +8,7 @@ def get_audio_files(path: str, with_extensions=True):
     """
     files = []
     for f in os.listdir(path):
-        if f.endswith(".mp3") or f.endswith(".wav"):
+        if f.endswith(".mp3"):
             files.append(f)
     if not with_extensions:
         return sorted([os.path.splitext(f)[0] for f in files])
