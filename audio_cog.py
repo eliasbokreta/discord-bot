@@ -72,6 +72,12 @@ class AudioBot(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
+    async def audiofiles(self, ctx):
+        """List all audio files available"""
+        files = '"{0}"'.format('", "'.join(self.audio_files))
+        await ctx.send("```Available audio files :\n{0}```".format(files))
+
+    @commands.command()
     async def play(self, ctx, *, filename: str):
         """Play a sound using the filename
            Filenames can be retrieved with 'audiofiles' commmand
@@ -80,15 +86,10 @@ class AudioBot(commands.Cog):
             await self.connect(ctx)
         if filename not in self.audio_files:
             await ctx.send("File {0} not found".format(filename))
+            await self.audiofiles(ctx)
         else:
             ctx.voice_client.play(discord.FFmpegPCMAudio(source="{0}{1}.mp3".format(self.audio_base_dir, filename)))
         await ctx.message.delete()
-
-    @commands.command()
-    async def audiofiles(self, ctx):
-        """List all audio files available"""
-        files = '"{0}"'.format('", "'.join(self.audio_files))
-        await ctx.send("```Available audio files :\n{0}```".format(files))
 
     @commands.command()
     async def stream(self, ctx, *, url: str):
